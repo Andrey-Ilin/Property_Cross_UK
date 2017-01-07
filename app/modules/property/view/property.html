@@ -1,0 +1,28 @@
+<div class="row property-details">
+    <div class="col-sm-offset-2 col-sm-2">
+        <a class="btn btn-default" href="/results">Go back</a>
+    </div>
+    <div class="col-sm-4">
+        <img src="{{property._property.img_url}}" alt="image of property" class="img-thumbnail">
+    </div>
+    <div class="col-sm-offset-1 col-sm-2" ng-if="!property._notInFavorite">
+        <button type="button" class="btn btn-default" ng-click="property.addToFavorite(property._property)">
+            <span class="glyphicon glyphicon-star"></span> Add
+        </button>
+    </div>
+    <div class="col-sm-offset-1 col-sm-2" ng-if="property._notInFavorite">
+        <div class="alert alert-info">
+            In Faves
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+            <h3><span class="label label-info">{{property._property.price_formatted}}</span></h3>
+            <h4 class="media-heading">{{property._property.title}}</h4>
+            <p>{{property._property.bedroom_number}} bedroom, {{property._property.bathroom_number}} bathroom</p>
+            <br/>
+            <p>{{property._property.summary}}</p>
+        </div>
+    </div>
+</div>
+

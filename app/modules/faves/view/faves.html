@@ -1,0 +1,35 @@
+<div class="container-results">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-2">
+            <a class="btn btn-default" href="/">Go back</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="alert alert-info">
+                Favourites
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="faves._favourites.length">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="media" ng-repeat="property in faves._favourites">
+                <div class="media-left">
+                    <a href="/property">
+                        <img class="media-object" src="{{property.img_url}}" alt="image of property" ng-click="faves.openProperty(property)">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{property.title}}</h4>
+                    <h4><span class="label label-info">{{property.price_formatted}}</span></h4>
+                    <p>{{property.summary}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-if="!faves._favourites.length">
+    <div class="alert alert-info">
+        You have not added any properties to your favourites
+    </div>
+</div>
+
+

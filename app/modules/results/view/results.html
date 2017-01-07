@@ -1,0 +1,40 @@
+<div class="container-results">
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-2">
+            <a class="btn btn-default" href="/" ng-click="searchResults.clearSearchresults()">Go back</a>
+        </div>
+        <div class="col-sm-4">
+            <div class="alert alert-info">
+                {{searchResults._searchResults.length}} of {{searchResults._totalResults}} matches
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="media" ng-repeat="property in searchResults._searchResults">
+                <div class="media-left">
+                    <a href="/property">
+                        <img class="media-object" src="{{property.img_url}}" alt="image of property" ng-click="searchResults.openProperty(property)">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{property.title}}</h4>
+                    <h4><span class="label label-info">{{property.price_formatted}}</span></h4>
+                    <p>{{property.summary}}</p>
+                </div>
+            </div>
+            <br/>
+            <button type="button" class="btn btn-info btn-lg btn-block" ng-click="searchResults.loadMore()"
+            ng-disabled="!searchResults.isLoaded || (searchResults._totalResults == searchResults._searchResults.length)">
+                <span ng-show="searchResults.isLoaded">
+                    Load more... Results for <span class="red-color">#{{searchResults.getSearchTerm()}}#</span>, showing {{searchResults._searchResults.length}} of {{searchResults._totalResults}} properties
+                </span>
+                <span ng-show="!searchResults.isLoaded">
+                    Loading...
+                </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+

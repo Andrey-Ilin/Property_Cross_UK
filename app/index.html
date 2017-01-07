@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app" lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PropertyCross</title>
+</head>
+
+<body>
+    <ng-navbar></ng-navbar>
+    <div class="content">
+        <div class="spinner" ng-show="loadingView">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <ng-view ng-hide="loadingView" ng-cloak=""></ng-view>
+    </div>
+    <div class="container" ng-hide="loadingView">
+        <ng-footer></ng-footer>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+
+</html>
